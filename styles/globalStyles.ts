@@ -19,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-    color: inherit;
-    text-decoration: none;
+      color: inherit;
+      text-decoration: none;
     }
 
 `;

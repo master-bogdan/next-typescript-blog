@@ -1,19 +1,30 @@
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
-export const GET_ONE_POST = 'GET_ONE_POST'
+export const GET_ONE_POST = 'GET_ONE_POST';
+export const CREATE_POST = 'CREATE_POST';
 
+export interface PostType {
+  id: number
+  title: string
+  body: string
+}
 export interface PostsState {
-  posts: []
-  post: unknown
+  posts: PostType[]
+  post: PostType
 }
 
-interface GetAllPosts {
+interface GetAllPostsAction {
   type: typeof GET_ALL_POSTS,
-  payload: []
+  payload: PostType[]
 }
 
-interface GetPost {
+interface GetPostAction {
   type: typeof GET_ONE_POST,
-  payload: unknown
+  payload: PostType
 }
 
-export type PostsActions = GetAllPosts | GetPost;
+interface CreatePostAction {
+  type: typeof CREATE_POST,
+  payload: PostType
+}
+
+export type PostsActions = GetAllPostsAction | GetPostAction | CreatePostAction;

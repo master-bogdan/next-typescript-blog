@@ -24,9 +24,9 @@ const PostPage: React.FC<IPost> = ({ post }) => (
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({ store, query }) => {
   try {
     const { postId } = query;
-    const response = await axios.get(`https://simple-blog-api.crew.red/posts/${postId}`);
-    await store.dispatch(getPost(response.data))
-    return {props: { post: response.data }}
+    const { data } = await axios.get(`https://simple-blog-api.crew.red/posts/${postId}`);
+    await store.dispatch(getPost(data))
+    return {props: { post: data }}
   } catch (error) {
     console.log(error);
     return {props: { error }};

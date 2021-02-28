@@ -1,18 +1,27 @@
-import React, { FC } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import Container from '../Ui/container';
-import { Block, Title } from './styles';
+import {
+  Block,
+  Title,
+  AddPostButton,
+} from './styles';
 
-const Header: FC = () => {
-    return (
-        <Block>
-            <Container
-                display='flex'
-                align='center'
-            >
-                <Title>Typescript blog</Title>
-            </Container>   
-        </Block>
-    )
-}
+const Header: React.FC = () => (
+  <Block>
+    <Container
+        display='flex'
+        align='center'
+        justify='space-between'
+    >
+        <Title>Typescript blog</Title>
+        <Link href="/posts/add">
+          <AddPostButton>
+            Add Post
+          </AddPostButton>
+        </Link>
+    </Container>   
+  </Block>
+)
 
 export default Header;

@@ -1,13 +1,14 @@
 import {
   GET_ALL_POSTS,
   GET_ONE_POST,
+  CREATE_POST,
   PostsState,
   PostsActions,
 } from './postsTypes';
 
 const initialState: PostsState = {
   posts: [],
-  post: {}
+  post: null
 };
 
 const postsReducer = (
@@ -24,6 +25,11 @@ const postsReducer = (
       return {
         ...state,
         post: action.payload
+      };
+    case CREATE_POST: 
+      return {
+        ...state,
+        posts: [action.payload, ...state.posts]
       };
     default:
       return { ...state };
